@@ -1,0 +1,23 @@
+# ========================
+# Inception - Sensitive
+# ========================
+
+# Secret password files
+secrets/*.txt
+
+# Environment overrides (if you ever create local versions)
+srcs/.env.local
+
+# ========================
+# VS Code
+# ========================
+
+.vscode/
+.history/
+
+# ========================
+# SSH
+# ========================
+
+*.pem
+*.key
