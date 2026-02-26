@@ -23,47 +23,6 @@ for i in {1..60}; do
   sleep 1
 done
 
-# Install WP files only if not present in the volume
-#if [ ! -f /var/www/html/wp-config.php ]; then
-#  echo "[wordpress] Downloading WordPress..."
-#  curl -fsSL https://wordpress.org/latest.tar.gz -o /tmp/wp.tar.gz
-#  tar -xzf /tmp/wp.tar.gz -C /tmp
-#  cp -R /tmp/wordpress/* /var/www/html/
-#  rm -rf /tmp/wp.tar.gz /tmp/wordpress
-
-#  echo "[wordpress] Creating wp-config.php..."
-#  wp config create \
-#    --allow-root \
-#    --dbname="${MYSQL_DATABASE}" \
-#    --dbuser="${MYSQL_USER}" \
-#    --dbpass="${DB_PASSWORD}" \
-#    --dbhost="mariadb:3306" \
-#    --path=/var/www/html
-
-#  echo "[wordpress] Installing WordPress..."
-#  wp core install \
-#    --allow-root \
-#    --url="https://${DOMAIN_NAME}" \
-#    --title="${WP_TITLE}" \
-#    --admin_user="${WP_ADMIN_USER}" \
-#    --admin_password="${WP_ADMIN_PASSWORD}" \
-#    --admin_email="${WP_ADMIN_EMAIL}" \
-#    --path=/var/www/html
-
-#  echo "[wordpress] Creating second user..."
-#  wp user create \
-#    --allow-root \
-#    "${WP_USER}" "${WP_USER_EMAIL}" \
-#    --user_pass="${WP_USER_PASSWORD}" \
-#    --role=author \
-#    --path=/var/www/html
-
-#  echo "[wordpress] Setup complete."
-
-#else
-#  echo "[wordpress] wp-config.php already exists — skipping install."
-#fi
-
 if [ ! -f /var/www/html/wp-load.php ]; then
   echo "[wordpress] Downloading WordPress..."
   curl -fsSL https://wordpress.org/latest.tar.gz -o /tmp/wp.tar.gz
